@@ -15,12 +15,6 @@ st.markdown("""
     footer {visibility: hidden;}
     </style> 
     """, unsafe_allow_html=True)
-[theme]
-primaryColor="green"
-backgroundColor="#36013F"
-secondaryBackgroundColor="#262730"
-textColor="#FAFAFA"
-font="sans serif"
 
 @st.cache(allow_output_mutation=True)
 def get_best_model():
