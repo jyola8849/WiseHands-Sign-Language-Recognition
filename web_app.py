@@ -1,3 +1,4 @@
+pip install sklearn.preprocessing
 from sklearn.preprocessing import LabelBinarizer
 from tensorflow import keras
 from PIL import Image
