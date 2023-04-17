@@ -68,23 +68,23 @@ if image_file is not None:
     translation_igbo = translator.translate(f'{letter}', dest = 'ig')
     st.write(f'{letter}')
     if image_file:
-			col1,col2  = st.beta_columns(2)
+		col1,col2  = st.beta_columns(2)
 
 			# Apply Fxn Here
 
-			with col1:
-				st.success("letter")
-				st.write(letter)
+		with col1:
+			st.success("letter")
+			st.write(letter)
 
-				st.success("yoruba translation")
-				st.write("{}".format(translation_yoruba)
+			st.success("yoruba translation")
+			st.write("{}".format(translation_yoruba)
 
 
-			with col2:
-				st.success("igbo translation")
-                st.write("{}".format(translation_igbo)
-                st.success("hausa translation")
-                st.write("{}".format(translation_hausa)
+		with col2:
+			st.success("igbo translation")
+            st.write("{}".format(translation_igbo)
+            st.success("hausa translation")
+            st.write("{}".format(translation_hausa)
 
 
 st.subheader('Convert images to English sentence')
