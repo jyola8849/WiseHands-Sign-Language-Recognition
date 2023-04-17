@@ -67,9 +67,26 @@ if image_file is not None:
     translation_hausa = translator.translate(f'{letter}', dest ='ha')
     translation_igbo = translator.translate(f'{letter}', dest = 'ig')
     st.write(f'{letter}')
-    st.write(f'The letter in yoruba is {translation_yoruba}')
-    st.write(f'The letter in hausa is {translation_hausa}')
-    st.write(f'The letter in igbo is {translation_igbo}')
+    if image_file:
+			col1,col2  = st.beta_columns(2)
+
+			# Apply Fxn Here
+
+			with col1:
+				st.success("letter")
+				st.write(letter)
+
+				st.success("yoruba translation")
+				st.write("{}".format(translation_yoruba)
+
+
+			with col2:
+				st.success("igbo translation")
+                st.write("{}".format(translation_igbo)
+                st.success("hausa translation")
+                st.write("{}".format(translation_hausa)
+
+
 st.subheader('Convert images to English sentence')
 sentence_image_files = st.file_uploader('Select the ASL Images', ['jpg', 'png'], accept_multiple_files = True)
 
@@ -80,11 +97,26 @@ if len(sentence_image_files) > 0:
         image = np.array(image, dtype='float32')
         letter = preprocess_image(image, image_file, best_model, label_binarizer)
         sentence += letter
-        translation_yoruba = translator.translate(f'{letter}', dest='yo')
-        translation_hausa = translator.translate(f'{letter}', dest ='ha')
-        translation_igbo = translator.translate(f'{letter}', dest = 'ig')
-        st.write(f'{sentence}')
-        st.write(f'The letter in yoruba is {translation_yoruba}')
-        st.write(f'The letter in hausa is {translation_hausa}')
-        st.write(f'The letter in igbo is {translation_igbo}')
+        translation_yoruba = translator.translate(f'{sentence}', dest='yo')
+        translation_hausa = translator.translate(f'{sentence}', dest ='ha')
+        translation_igbo = translator.translate(f'{sentence}', dest = 'ig')
+        if sentence_image_files:
+            col1,col2  = st.beta_columns(2)
+
+            # Apply Fxn Here
+
+            with col1:
+                st.success("sentence")
+                st.write(sentence)
+
+                st.success("yoruba translation")
+                st.write("{}".format(translation_yoruba)
+
+
+            with col2:
+                st.success("igbo translation")
+                st.write("{}".format(translation_igbo)
+                st.success("hausa translation")
+                st.write("{}".format(translation_hausa)
+
     
