@@ -1,6 +1,7 @@
 from sklearn.preprocessing import LabelBinarizer
 from tensorflow import keras
 from PIL import Image
+from googletrans import Translator
 
 import numpy as np
 import pandas as pd
@@ -57,13 +58,18 @@ st.markdown('Use 28x28 images (size of the training images) to obtain the accura
 
 st.subheader('Convert Image to English letter')
 image_file = st.file_uploader('Choose the ASL Image', ['jpg', 'png'])
-
+translator = Translator()
 if image_file is not None:
     image = Image.open(image_file).convert('L')
     image = np.array(image, dtype='float32')
     letter = preprocess_image(image, image_file, best_model, label_binarizer)
+    translation_yoruba = translator.translate(f'{letter}', dest='yo')
+    translation_hausa = translator.translate(f'{letter}', dest ='ha')
+    translation_igbo = translator.translate(f'{letter}', dest = 'ig')
     st.write(f'{letter}')
-
+    st.write(f'The letter in yoruba is {translation_yoruba}')
+    st.write(f'The letter in hausa is {translation_hausa}')
+    st.write(f'The letter in igbo is {translation_igbo}')
 st.subheader('Convert images to English sentence')
 sentence_image_files = st.file_uploader('Select the ASL Images', ['jpg', 'png'], accept_multiple_files = True)
 
@@ -74,4 +80,11 @@ if len(sentence_image_files) > 0:
         image = np.array(image, dtype='float32')
         letter = preprocess_image(image, image_file, best_model, label_binarizer)
         sentence += letter
-    st.write(f'{sentence}')
+        translation_yoruba = translator.translate(f'{letter}', dest='yo')
+        translation_hausa = translator.translate(f'{letter}', dest ='ha')
+        translation_igbo = translator.translate(f'{letter}', dest = 'ig')
+        st.write(f'{sentence}')
+        st.write(f'The letter in yoruba is {translation_yoruba}')
+        st.write(f'The letter in hausa is {translation_hausa}')
+        st.write(f'The letter in igbo is {translation_igbo}')
+    
