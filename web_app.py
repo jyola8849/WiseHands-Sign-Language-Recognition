@@ -18,13 +18,13 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 
-@st.cache(allow_output_mutation=True)
+#@st.cache(allow_output_mutation=True)
 def get_best_model():
     best_model = keras.models.load_model('models/experiment-dropout-0')
     return best_model
 
 
-@st.cache
+#@st.cache
 def get_label_binarizer():
     train_df = pd.read_csv('data/alphabet/sign_mnist_train.csv')
     y = train_df['label']
@@ -70,24 +70,24 @@ if image_file is not None:
     image = np.array(image, dtype='float32')
     letter = preprocess_image(image, image_file, best_model, label_binarizer)
     translation_yoruba = translator.translate(f'{letter}', dest='yo')
+    yoruba_text = translation_yoruba.text
     translation_hausa = translator.translate(f'{letter}', dest='ha')
     translation_igbo = translator.translate(f'{letter}', dest='ig')
     st.write(f'{letter}')
     if image_file:
         col1, col2 = st.beta_columns(2)
-			# Apply Fxn Here
+            # Apply Fxn Here
         with col1:
-			st.success("letter")
-			st.write(letter)
-			st.success("yoruba translation")
-			st.write("{}".format(translation_yoruba)
+            st.success("letter")
+            st.write(letter)
+            st.success("yoruba translation")
+            st.write("{}".format(yoruba_text))
 
-
-		with col2:
-			st.success("igbo translation")
-            st.write("{}".format(translation_igbo)
+        with col2:
+            st.success("igbo translation")
+            st.write("{}".format(translation_igbo))
             st.success("hausa translation")
-            st.write("{}".format(translation_hausa)
+            st.write("{}".format(translation_hausa))
 
 
 st.subheader('Convert images to English sentence')
@@ -114,11 +114,11 @@ if len(sentence_image_files) > 0:
                 st.write(sentence)
 
                 st.success("yoruba translation")
-                st.write("{}".format(translation_yoruba)
+                st.write("{}".format(translation_yoruba))
 
 
             with col2:
                 st.success("igbo translation")
-                st.write("{}".format(translation_igbo)
+                st.write("{}".format(translation_igbo))
                 st.success("hausa translation")
-                st.write("{}".format(translation_hausa)
+                st.write("{}".format(translation_hausa))
