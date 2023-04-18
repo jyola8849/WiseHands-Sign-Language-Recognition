@@ -4,4 +4,4 @@ streamlit==1.11.1
 numpy==1.23.1
 pandas==1.4.3
 pillow==9.2.0
-googletrans
+googletrans==4.0.0-rc1
