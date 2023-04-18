@@ -1,11 +1,8 @@
-# Sign Language Recognition
-The model developed can classify any letter in the American Sign Language (ASL) alphabet into the equivalent letter in the English Alphabet, which is a multiclass classification problem.
+# Nigerian Sign Language Recognition
+The model developed can classify any letter in the Nigerian Sign Language (NSL) alphabet into the equivalent letter in the Yoruba,Igbo and Hausa Alphabet, 
 
-Using this model, we can easily convert the ASL into the respective English sentences.
+Using this model, we can easily convert the NSL into the respective sentences.
 
-You can view the deployed version of the model [here](https://sathwick-reddy-m-sign-language-to-text-web-app-6j4rww.streamlitapp.com/)
-
-For a detailed explaination please refer [this](https://towardsdatascience.com/sign-language-to-text-using-deep-learning-7f9c8018c593) article
 
 ## Model Characterstics
 ### Input
