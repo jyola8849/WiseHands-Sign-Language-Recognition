@@ -8,8 +8,8 @@ import pandas as pd
 import streamlit as st
 import tensorflow as tf
 
-st.set_page_config(page_title='ASL Recognition')
-st.title('Odaibo voice Sign Language Recognition')
+st.set_page_config(page_title='NSL(Nigerian Sign Language) Recognition')
+st.title('WiseHands Sign Language Recognition')
 st.markdown("""
     <style>
     #MainMenu {visibility: hidden;}
@@ -62,8 +62,8 @@ label_binarizer = get_label_binarizer()
 st.markdown(
     'Use 28x28 images (size of the training images) to obtain the accurate results')
 
-st.subheader('Convert Image to English letter')
-image_file = st.file_uploader('Choose the ASL Image', ['jpg', 'png'])
+st.subheader('Convert Image to Letter')
+image_file = st.file_uploader('Choose the NSL Image', ['jpg', 'png'])
 translator = Translator()
 if image_file is not None:
     image = Image.open(image_file).convert('L')
@@ -92,9 +92,9 @@ if image_file is not None:
             st.write("{}".format(hausa_text))
 
 
-st.subheader('Convert images to English sentence')
+st.subheader('Convert Images to Sentence')
 sentence_image_files=st.file_uploader(
-    'Select the ASL Images', ['jpg', 'png'], accept_multiple_files=True)
+    'Select the NSL Images', ['jpg', 'png'], accept_multiple_files=True)
 
 if len(sentence_image_files) > 0:
     sentence=''
