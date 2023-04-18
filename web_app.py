@@ -72,10 +72,12 @@ if image_file is not None:
     translation_yoruba = translator.translate(f'{letter}', dest='yo')
     yoruba_text = translation_yoruba.text
     translation_hausa = translator.translate(f'{letter}', dest='ha')
+    hausa_text = translation_hausa.text
     translation_igbo = translator.translate(f'{letter}', dest='ig')
-    st.write(f'{letter}')
+    igbo_text = translation_igbo.text
+
     if image_file:
-        col1, col2 = st.beta_columns(2)
+        col1, col2 = st.columns(2)
             # Apply Fxn Here
         with col1:
             st.success("letter")
@@ -85,9 +87,9 @@ if image_file is not None:
 
         with col2:
             st.success("igbo translation")
-            st.write("{}".format(translation_igbo))
+            st.write("{}".format(igbo_text))
             st.success("hausa translation")
-            st.write("{}".format(translation_hausa))
+            st.write("{}".format(hausa_text))
 
 
 st.subheader('Convert images to English sentence')
@@ -102,23 +104,26 @@ if len(sentence_image_files) > 0:
         letter=preprocess_image(image, image_file, best_model, label_binarizer)
         sentence += letter
         translation_yoruba=translator.translate(f'{sentence}', dest='yo')
+        yoruba_sentence = translation_yoruba.text
         translation_hausa=translator.translate(f'{sentence}', dest='ha')
+        hausa_sentence = translation_hausa.text
         translation_igbo=translator.translate(f'{sentence}', dest='ig')
+        igbo_sentence = translation_igbo.text
         if sentence_image_files:
-            col1, col2=st.beta_columns(2)
+            col1, col2=st.columns(2)
 
             # Apply Fxn Here
 
             with col1:
                 st.success("sentence")
-                st.write(sentence)
+                st.write(f'{sentence}')
 
                 st.success("yoruba translation")
-                st.write("{}".format(translation_yoruba))
+                st.write("{}".format(yoruba_sentence))
 
 
             with col2:
                 st.success("igbo translation")
-                st.write("{}".format(translation_igbo))
+                st.write("{}".format(igbo_sentence))
                 st.success("hausa translation")
-                st.write("{}".format(translation_hausa))
+                st.write("{}".format(hausa_sentence))
